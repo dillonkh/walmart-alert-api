@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "walmart-alert-api"
+version = "0.1.0"
+description = ""
+authors = ["Dillon Harris <43145893+dillonkh@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.103.2"
+uvicorn = "^0.23.2"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.10.0"
+isort = "^5.12.0"
+
+[tool.isort]
+profile = "black"
+
+[tool.black]
+line-length = 90
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
