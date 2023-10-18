@@ -1,4 +1,5 @@
 import sqlite3
+
 from fastapi import HTTPException
 from pydantic import BaseModel
 
@@ -8,7 +9,9 @@ from walmart_alert_api.models.alert import Alert
 class CustomErrorModel(BaseModel):
     custom_message: str
 
+
 DB_NAME = "walmart-exam.db"
+
 
 def delete_alert(service_id: str):
     db_client = sqlite3.connect(DB_NAME)
@@ -21,6 +24,7 @@ def delete_alert(service_id: str):
     )
     db_client.commit()
     return service_id
+
 
 def insert_alert(alert: Alert):
     db_client = sqlite3.connect(DB_NAME)
