@@ -166,10 +166,8 @@ class TestAlertsV2:
         # test getting everything in range by just start ts
         start_ts = 1
         # end_ts = 6000
-        response = client.get(
-            f"/v2/alerts?start_ts={start_ts}"
-        )
-        
+        response = client.get(f"/v2/alerts?start_ts={start_ts}")
+
         assert response.status_code == 200
         for service in response.json()["services"]:
             if service["service_id"] == ALERTS_SERVICE_X:
@@ -180,9 +178,7 @@ class TestAlertsV2:
         # test getting everything in range by just end ts
         # start_ts = 1
         end_ts = 6000
-        response = client.get(
-            f"/v2/alerts?end_ts={end_ts}"
-        )
+        response = client.get(f"/v2/alerts?end_ts={end_ts}")
 
         assert response.status_code == 200
         for service in response.json()["services"]:
@@ -192,9 +188,7 @@ class TestAlertsV2:
 
     def test_get_by_just_id(self):
         # test getting everything in range by just service_id
-        response = client.get(
-            f"/v2/alerts?service_id={ALERTS_SERVICE_X}"
-        )
+        response = client.get(f"/v2/alerts?service_id={ALERTS_SERVICE_X}")
 
         assert response.status_code == 200
         for service in response.json()["services"]:
